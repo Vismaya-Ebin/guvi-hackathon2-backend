@@ -1,9 +1,21 @@
+
+
+// express web application framework for node JS
 import express from "express";
 
+//loads env variable from .env to process.env
+import dotenv from "dotenv";
+
 const app = express();
-const PORT = 6000;
+dotenv.config();
 
+const PORT = process.env.PORT;
+console.log(`Port: ${PORT}`);
 
-app.listen(port, () => {
-    console.log(l`istening on port ${port}`);
+app.get("/",(req,res)=>{
+    res.send(` 👩‍❤️‍👨👩‍❤️‍👨👩‍❤️‍👨👩‍❤️‍👨👩‍❤️‍👨 Welcome to Hackathon 2 Guvi 👩‍❤️‍👨👩‍❤️‍👨👩‍❤️‍👨👩‍❤️‍👨👩‍❤️‍👨${PORT}`);
+})
+//Check Port is up or not
+app.listen(PORT, () => {
+    console.log(`listening on port ${PORT}`);
 });
